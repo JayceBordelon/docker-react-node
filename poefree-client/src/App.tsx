@@ -1,28 +1,21 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import { request } from './api/apiConfig';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UsersPage from './pages/UsersPage';
+import FeedPage from './pages/FeedPage';
+import UserProfile from './pages/UserProfile';
+import MyWork from './pages/MyWork';
 
-function App() {
-  const [serverRes, setServerRes] = useState<string>("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await request("/", "GET");
-        setServerRes(JSON.stringify(response.data));
-        console.info("CLIENT: established client connectivity to server.", response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+const App: React.FC = () => {
   return (
-    <h4>
-    {serverRes ? serverRes : 'Loading...'}
-    </h4>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<FeedPage />} />
+        <Route path="/work" element={<MyWork />} />
+        <Route path="/users" element={<UsersPage />} />
+        <Route path="/users/:userId" element={<UserProfile />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;

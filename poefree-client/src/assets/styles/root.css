@@ -1,0 +1,18 @@
+:root {
+    --bg: #011E2B;
+    --text: #E8EDEB;
+    --accent: #FF9900;
+    --writing-font: "Euclid Circular A", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --typewriter-font: "'Courier New', Courier, monospace";
+    --clean-border: 1px solid rgb(61, 79, 88);
+}
+
+body, html {
+    font-family: var(--writing-font);
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+.accent-color{
+    color: var(--accent);
+}

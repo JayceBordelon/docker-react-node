@@ -1,0 +1,7 @@
+:root {
+    /* --nav-height-spacing: var(--nav-height); */
+}
+
+.gen-layout {
+    margin-top: var(--nav-height);
+}

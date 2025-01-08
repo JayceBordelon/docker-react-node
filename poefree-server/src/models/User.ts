@@ -8,6 +8,7 @@ export interface IUser extends Document {
   username: string;
   email: string;
   password: string;
+  profilePicture: string;
   subscribers: mongoose.Types.ObjectId[];
   subscribedTo: mongoose.Types.ObjectId[];
   poems: mongoose.Types.ObjectId[];
@@ -21,6 +22,7 @@ const UserSchema: Schema<IUser> = new Schema(
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    profilePicture: { type: String, required: true },
     subscribers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     subscribedTo: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     poems: [{ type: mongoose.Schema.Types.ObjectId, ref: "Poem" }],
@@ -53,9 +55,11 @@ UserSchema.methods.comparePassword = async function (
 UserSchema.statics.register = async function (
   username: string,
   email: string,
-  password: string
+  password: string,
+  profilePicture: string
+
 ): Promise<IUser> {
-  const user = new this({ username, email, password });
+  const user = new this({ username, email, password, profilePicture });
   return user.save();
 };
 
