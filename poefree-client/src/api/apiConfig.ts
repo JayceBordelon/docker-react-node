@@ -1,41 +1,66 @@
-import axios, { Method, AxiosResponse, AxiosRequestConfig } from "axios";
+import axios, { Method, AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL, // Base URL from environment variables
+  baseURL: import.meta.env.VITE_API_URL,
+  timeout: import.meta.env.VITE_API_TIMEOUT,
+  headers: {
+    'Content-Type': 'application/json', // Default content type
+  },
 });
 
-/**
- * Generalized API request function.
- * 
- * @param endpoint - The API endpoint (relative to baseURL).
- * @param method - The HTTP method (GET, POST, PUT, DELETE, etc.).
- * @param data - The request payload (for POST, PUT, etc.).
- * @param headers - Additional headers for the request.
- * @param params - Query parameters for the request.
- * @returns A promise that resolves with the AxiosResponse.
- */
-export const request = async <T = any>(
+export const apiRequest = async <T>(
+  method: Method,
   endpoint: string,
-  method: Method = "GET",
   data?: any,
-  headers?: Record<string, string>,
-  params?: Record<string, any>
+  customHeaders?: Record<string, string>,
 ): Promise<AxiosResponse<T>> => {
-  const config: AxiosRequestConfig = {
-    url: endpoint,
-    method,
-    data,
-    headers,
-    params,
-  };
-
   try {
+    const config: AxiosRequestConfig = {
+      method,
+      url: endpoint,
+      data,
+      headers: customHeaders,
+    };
+
     const response = await api.request<T>(config);
     return response;
   } catch (error: any) {
-    console.error("API Request Error:", error.response || error.message);
-    throw error;
+    if (error.response) {
+      console.error(
+        `API Error [${error.response.status}]:`,
+        error.response.data,
+      );
+      throw error.response.data;
+    } else if (error.request) {
+      console.error('API Error: No response from server:', error.request);
+      throw new Error('No response from server');
+    } else {
+      console.error('API Error:', error.message);
+      throw new Error(error.message);
+    }
   }
 };
+
+export const apiGet = <T>(
+  endpoint: string,
+  customHeaders?: Record<string, string>,
+) => apiRequest<T>('GET', endpoint, null, customHeaders);
+
+export const apiPost = <T>(
+  endpoint: string,
+  data?: any,
+  customHeaders?: Record<string, string>,
+) => apiRequest<T>('POST', endpoint, data, customHeaders);
+
+export const apiPut = <T>(
+  endpoint: string,
+  data?: any,
+  customHeaders?: Record<string, string>,
+) => apiRequest<T>('PUT', endpoint, data, customHeaders);
+
+export const apiDelete = <T>(
+  endpoint: string,
+  customHeaders?: Record<string, string>,
+) => apiRequest<T>('DELETE', endpoint, null, customHeaders);
 
 export default api;

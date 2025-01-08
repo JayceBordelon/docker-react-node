@@ -4,7 +4,11 @@ import User from '../models/User';
 import { successResponse, errorResponse } from '../utils/responseHelpers';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 
-// Register a new user
+/**
+ * @param req
+ * @param res
+ * @returns user: {id, username}
+ */
 export const registerUser = async (
   req: Request,
   res: Response,
@@ -69,7 +73,11 @@ export const registerUser = async (
   }
 };
 
-// Login a user
+/**
+ * @param req
+ * @param res
+ * @returns user: {_id, username}
+ */
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
   const { username, email, password } = req.body;
 
