@@ -1,8 +1,4 @@
 :root {
-    --footer-bg: #012B36;
-    --footer-text: #E6E6E6;
-    --footer-accent: #FFB84D;
-    --footer-link-hover: #FF9900;
     --footer-padding: 2rem;
     --footer-title-font-size: 1.5rem;
     --footer-link-font-size: 1rem;
@@ -10,19 +6,19 @@
 }
 
 .footer {
-    background-color: var(--footer-bg);
     color: var(--footer-text);
     padding: var(--footer-padding);
     border-top: 1px solid var(--footer-border-color);
     text-align: center;
+    border-top: var(--clean-border);
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
+    align-items: flex-start;
+    gap: 3rem;
 }
 
 .footer-logo {
@@ -33,18 +29,17 @@
 .footer-title {
     font-size: var(--footer-title-font-size);
     font-family: var(--typewriter-font);
-    margin-bottom: 0.5rem;
 }
 
 .footer-links {
     text-align: left;
     flex: 1;
+    padding-bottom: 1rem;
 }
 
 .footer-links h4 {
-    margin-bottom: 1rem;
     font-size: var(--footer-link-font-size);
-    color: var(--footer-accent);
+    color: var(--accent);
     font-family: var(--writing-font);
 }
 
@@ -65,12 +60,11 @@
 }
 
 .social-link:hover {
-    color: var(--footer-link-hover);
+    color: var(--accent);
 }
 
 .footer-bottom {
-    margin-top: 2rem;
-    border-top: 1px solid var(--footer-border-color);
+    border-top: var(--clean-border);
     padding-top: 1rem;
     font-size: 0.9rem;
 }

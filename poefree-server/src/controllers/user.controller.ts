@@ -27,8 +27,18 @@ export const registerUser = async (req: Request, res: Response): Promise<void> =
       poems: [],
     });
 
-    await newUser.save();
-    res.status(201).json({ message: "User registered successfully" });
+    const savedUser = await newUser.save();
+
+    // Create a session for the user
+    req.session.user = {
+      id: savedUser._id as string,
+      username: savedUser.username,
+    };
+
+    res.status(201).json({
+      message: "User registered successfully",
+      user: { id: savedUser._id, username: savedUser.username },
+    });
   } catch (error) {
     console.error("Error registering user:", error);
     res.status(500).json({ message: "Failed to register user" });
@@ -58,70 +68,5 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).json({ message: "Failed to log in user" });
-  }
-};
-
-// Subscribe to another user
-export const subscribeToUser = async (req: Request, res: Response): Promise<void> => {
-  const { userId, targetUserId } = req.body;
-
-  try {
-    // Ensure target user exists
-    const targetUser = await User.findById(targetUserId);
-    if (!targetUser) {
-      res.status(404).json({ message: "Target user not found" });
-      return;
-    }
-
-    // Update the subscriber and subscribedTo arrays
-    await User.findByIdAndUpdate(userId, {
-      $addToSet: { subscribedTo: targetUserId },
-    });
-    await User.findByIdAndUpdate(targetUserId, {
-      $addToSet: { subscribers: userId },
-    });
-
-    res.status(200).json({ message: "Successfully subscribed to user" });
-  } catch (error) {
-    console.error("Error subscribing to user:", error);
-    res.status(500).json({ message: "Failed to subscribe to user" });
-  }
-};
-
-// Unsubscribe from a user
-export const unsubscribeFromUser = async (req: Request, res: Response): Promise<void> => {
-  const { userId, targetUserId } = req.body;
-
-  try {
-    // Update the subscriber and subscribedTo arrays
-    await User.findByIdAndUpdate(userId, {
-      $pull: { subscribedTo: targetUserId },
-    });
-    await User.findByIdAndUpdate(targetUserId, {
-      $pull: { subscribers: userId },
-    });
-
-    res.status(200).json({ message: "Successfully unsubscribed from user" });
-  } catch (error) {
-    console.error("Error unsubscribing from user:", error);
-    res.status(500).json({ message: "Failed to unsubscribe from user" });
-  }
-};
-
-// Get user profile
-export const getUserProfile = async (req: Request, res: Response): Promise<void> => {
-  const { userId } = req.params;
-
-  try {
-    const user = await User.findById(userId).populate("subscribers subscribedTo poems");
-    if (!user) {
-      res.status(404).json({ message: "User not found" });
-      return;
-    }
-
-    res.status(200).json(user);
-  } catch (error) {
-    console.error("Error retrieving user profile:", error);
-    res.status(500).json({ message: "Failed to retrieve user profile" });
   }
 };

@@ -13,6 +13,7 @@ router.get("/", (req: Request, res: Response) => {
   const routes = [
     { path: "/user", description: "User-related operations (e.g., login, register, profile)" },
     { path: "/poem", description: "Poem-related operations (e.g., create, read, update, delete)" },
+    { path: "/uploads/:filename", description: "get file by name" },
   ];
 
   res.json({
