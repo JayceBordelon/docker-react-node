@@ -15,15 +15,14 @@ header {
     z-index: 999;
     background-color: var(--bg);
     transition: transform 0.3s ease-in-out;
-    transform: translateY(0); 
+    transform: translateY(0);
 }
 
 header.hidden {
-    transform: translateY(-100%); 
+    transform: translateY(-100%);
 }
 
-
-.quill{
+.quill {
     font-size: var(--nav-qull-size);
 }
 
@@ -55,23 +54,27 @@ nav {
     text-decoration: none;
     font-size: var(--nav-menu-link-size);
     color: var(--active-text);
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 .nav-menu .nav-link::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 50%;
     bottom: 0;
     width: 0;
     height: 2px;
     background-color: var(--accent);
-    transition: width 0.3s ease, left 0.3s ease;
+    transition:
+        width 0.3s ease,
+        left 0.3s ease;
 }
 
 .nav-menu .nav-link:hover {
     color: var(--accent);
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .nav-menu .nav-link:hover::after {
@@ -79,14 +82,12 @@ nav {
     left: 0;
 }
 
-
 @media only screen and (max-width: 600px) {
-    :root{
+    :root {
         --nav-menu-width: 100%;
     }
 
     .logo {
         display: none;
     }
-
 }

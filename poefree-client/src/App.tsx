@@ -7,17 +7,17 @@ import MyWork from './pages/MyWork';
 import Auth from './pages/Auth';
 
 const App: React.FC = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<FeedPage />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/work" element={<MyWork />} />
-        <Route path="/users" element={<UsersPage />} />
-        <Route path="/users/:userId" element={<UserProfile />} />
-      </Routes>
-    </Router>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<FeedPage />} />
+                <Route path="/auth" element={<Auth />} />
+                <Route path="/work" element={<MyWork />} />
+                <Route path="/users" element={<UsersPage />} />
+                <Route path="/users/:userId" element={<UserProfile />} />
+            </Routes>
+        </Router>
+    );
 };
 
 export default App;

@@ -10,67 +10,65 @@ import { StatusCodes, ReasonPhrases } from 'http-status-codes';
  * @returns user: {id, username}
  */
 export const registerUser = async (
-  req: Request,
-  res: Response,
+    req: Request,
+    res: Response,
 ): Promise<void> => {
-  const { username, email, password } = req.body;
+    const { username, email, password } = req.body;
 
-  try {
-    // Check if user already exists
-    const existingUser = await User.findOne({ $or: [{ username }, { email }] });
-    if (existingUser) {
-      res
-        .status(StatusCodes.BAD_REQUEST)
-        .json(
-          errorResponse(ReasonPhrases.BAD_REQUEST, [
-            'Username or email already exists',
-          ]),
+    try {
+        // Check if user already exists
+        const existingUser = await User.findOne({
+            $or: [{ username }, { email }],
+        });
+        if (existingUser) {
+            res.status(StatusCodes.BAD_REQUEST).json(
+                errorResponse(ReasonPhrases.BAD_REQUEST, [
+                    'Username or email already exists',
+                ]),
+            );
+            return;
+        }
+
+        // Create new user
+        const newUser = new User({
+            username,
+            email,
+            password,
+        });
+
+        const savedUser = await newUser.save();
+
+        // Create a session for the user
+        req.session.user = {
+            id: savedUser._id as string,
+            username: savedUser.username,
+        };
+
+        res.status(StatusCodes.CREATED).json(
+            successResponse(
+                {
+                    id: savedUser._id,
+                    username: savedUser.username,
+                },
+                ReasonPhrases.CREATED, // "Created"
+            ),
         );
-      return;
+    } catch (error) {
+        console.error('Error registering user:', error);
+        if (error instanceof Error) {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(
+                errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [
+                    error.message,
+                ]),
+            );
+        } else {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(
+                errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [
+                    'Unknown error occurred',
+                ]),
+            );
+        }
     }
-
-    // Create new user
-    const newUser = new User({
-      username,
-      email,
-      password,
-    });
-
-    const savedUser = await newUser.save();
-
-    // Create a session for the user
-    req.session.user = {
-      id: savedUser._id as string,
-      username: savedUser.username,
-    };
-
-    res.status(StatusCodes.CREATED).json(
-      successResponse(
-        {
-          id: savedUser._id,
-          username: savedUser.username,
-        },
-        ReasonPhrases.CREATED, // "Created"
-      ),
-    );
-  } catch (error) {
-    console.error('Error registering user:', error);
-    if (error instanceof Error) {
-      res
-        .status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json(
-          errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [error.message]),
-        );
-    } else {
-      res
-        .status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json(
-          errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [
-            'Unknown error occurred',
-          ]),
-        );
-    }
-  }
 };
 
 /**
@@ -79,60 +77,58 @@ export const registerUser = async (
  * @returns user: {_id, username}
  */
 export const loginUser = async (req: Request, res: Response): Promise<void> => {
-  const { username, email, password } = req.body;
+    const { username, email, password } = req.body;
 
-  try {
-    // Find user by username
-    const user = await User.findOne({ $or: [{ username }, { email }] });
-    if (!user) {
-      res
-        .status(StatusCodes.NOT_FOUND)
-        .json(errorResponse(ReasonPhrases.NOT_FOUND, ['User not found']));
-      return;
-    }
+    try {
+        // Find user by username
+        const user = await User.findOne({ $or: [{ username }, { email }] });
+        if (!user) {
+            res.status(StatusCodes.NOT_FOUND).json(
+                errorResponse(ReasonPhrases.NOT_FOUND, ['User not found']),
+            );
+            return;
+        }
 
-    // Compare passwords
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      res
-        .status(StatusCodes.UNAUTHORIZED)
-        .json(
-          errorResponse(ReasonPhrases.UNAUTHORIZED, ['Invalid credentials']),
+        // Compare passwords
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            res.status(StatusCodes.UNAUTHORIZED).json(
+                errorResponse(ReasonPhrases.UNAUTHORIZED, [
+                    'Invalid credentials',
+                ]),
+            );
+            return;
+        }
+
+        // Create a session for the user
+        req.session.user = {
+            id: user._id as string,
+            username: user.username,
+        };
+
+        res.status(StatusCodes.OK).json(
+            successResponse(
+                {
+                    id: user._id,
+                    username: user.username,
+                },
+                ReasonPhrases.OK, // "OK"
+            ),
         );
-      return;
+    } catch (error) {
+        console.error('Error logging in user:', error);
+        if (error instanceof Error) {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(
+                errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [
+                    error.message,
+                ]),
+            );
+        } else {
+            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(
+                errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [
+                    'Unknown error occurred',
+                ]),
+            );
+        }
     }
-
-    // Create a session for the user
-    req.session.user = {
-      id: user._id as string,
-      username: user.username,
-    };
-
-    res.status(StatusCodes.OK).json(
-      successResponse(
-        {
-          id: user._id,
-          username: user.username,
-        },
-        ReasonPhrases.OK, // "OK"
-      ),
-    );
-  } catch (error) {
-    console.error('Error logging in user:', error);
-    if (error instanceof Error) {
-      res
-        .status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json(
-          errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [error.message]),
-        );
-    } else {
-      res
-        .status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json(
-          errorResponse(ReasonPhrases.INTERNAL_SERVER_ERROR, [
-            'Unknown error occurred',
-          ]),
-        );
-    }
-  }
 };

@@ -14,15 +14,23 @@ const Logo = () => {
 const NavMenu = () => {
     return (
         <span className="nav-menu">
-            <Link to="/work" className="nav-link">My Work</Link>
-            <Link to="/users" className="nav-link">Users</Link>
-            <Link to="/" className="nav-link">Feed</Link>
+            <Link to="/work" className="nav-link">
+                My Work
+            </Link>
+            <Link to="/users" className="nav-link">
+                Users
+            </Link>
+            <Link to="/" className="nav-link">
+                Feed
+            </Link>
         </span>
     );
 };
 
 export default function NavBar() {
-    const [scrollDirection, setScrollDirection] = useState<'up' | 'down' | null>(null);
+    const [scrollDirection, setScrollDirection] = useState<
+        'up' | 'down' | null
+    >(null);
     const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {

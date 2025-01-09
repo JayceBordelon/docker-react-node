@@ -1,8 +1,10 @@
 :root {
-    --bg: #E8EDEB;
+    --bg: #e8edeb;
     --text: #011e2b;
-    --accent: #585440;
-    --writing-font: "Euclid Circular A", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --accent: #c75a5a;
+    --hover-color: #fa7070;
+    --writing-font: 'Euclid Circular A', 'Helvetica Neue', Helvetica, Arial,
+        sans-serif;
     --typewriter-font: "'Courier New', Courier, monospace";
     --clean-border: 1px solid rgb(61, 79, 88);
 }

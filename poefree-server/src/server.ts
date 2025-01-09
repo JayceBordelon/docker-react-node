@@ -1,10 +1,10 @@
 import express from 'express';
 import path from 'path';
 import {
-  PORT,
-  NODE_ENV,
-  MONGO_URI,
-  SESSION_SECRET,
+    PORT,
+    NODE_ENV,
+    MONGO_URI,
+    SESSION_SECRET,
 } from './config/validateEnv';
 import { connectToMongo } from './config/db';
 import { setupMiddleware } from './middleware';
@@ -20,26 +20,26 @@ console.info('[1/5] Express middleware up...');
 
 // Define session config
 declare module 'express-session' {
-  interface Session {
-    user: {
-      id: string;
-      username: string;
-    };
-  }
+    interface Session {
+        user: {
+            id: string;
+            username: string;
+        };
+    }
 }
 
 // Configure session middleware
 app.use(
-  session({
-    secret: SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 1000 * 60 * 60 * 24,
-      httpOnly: true,
-      secure: NODE_ENV === 'production',
-    },
-  }),
+    session({
+        secret: SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            maxAge: 1000 * 60 * 60 * 24,
+            httpOnly: true,
+            secure: NODE_ENV === 'production',
+        },
+    }),
 );
 console.info('[2/5] Session instantiated...');
 
@@ -54,8 +54,8 @@ console.info('[4/5] Routes established...');
 
 // Start server
 app.listen(PORT, '0.0.0.0', async () => {
-  await connectToMongo(MONGO_URI);
-  console.info('Sever is LIVE & HEALTHY!');
+    await connectToMongo(MONGO_URI);
+    console.info('Sever is LIVE & HEALTHY!');
 });
 
 // Setup graceful shutdown
