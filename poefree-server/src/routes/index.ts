@@ -1,11 +1,12 @@
 import { Router, Request, Response } from 'express';
 import userRoutes from './user.routes';
 import poemRoutes from './poem.routes';
+import { sanitizeInputs } from '../middleware/sanitization';
 
 const router = Router();
 
-router.use('/user', userRoutes);
-router.use('/poem', poemRoutes);
+router.use('/user', sanitizeInputs, userRoutes);
+router.use('/poem', sanitizeInputs, poemRoutes);
 
 // Return all routes for the API
 router.get('/', (req: Request, res: Response) => {

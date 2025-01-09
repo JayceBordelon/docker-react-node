@@ -1,17 +1,20 @@
-import axios, { Method, AxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse, Method } from 'axios';
+import { APIErrorResponse } from '../types/errors';
 
+// Create an instance of Axios
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
-    timeout: import.meta.env.VITE_API_TIMEOUT,
+    timeout: parseInt(import.meta.env.VITE_API_TIMEOUT || '5000'), // Default timeout
     headers: {
-        'Content-Type': 'application/json', // Default content type
+        'Content-Type': 'application/json',
     },
 });
 
+// Base API request function
 export const apiRequest = async <T>(
     method: Method,
     endpoint: string,
-    data?: any,
+    data?: Record<string, unknown>,
     customHeaders?: Record<string, string>,
 ): Promise<AxiosResponse<T>> => {
     try {
@@ -22,45 +25,69 @@ export const apiRequest = async <T>(
             headers: customHeaders,
         };
 
-        const response = await api.request<T>(config);
-        return response;
+        return await api.request<T>(config);
     } catch (error: any) {
         if (error.response) {
-            console.error(
-                `API Error [${error.response.status}]:`,
+            throw new APIErrorResponse(
+                error.response.data.message || 'Request failed',
+                error.response.status,
                 error.response.data,
             );
-            throw error.response.data;
         } else if (error.request) {
-            console.error('API Error: No response from server:', error.request);
-            throw new Error('No response from server');
+            throw new APIErrorResponse('No response from server', 500, null);
         } else {
-            console.error('API Error:', error.message);
-            throw new Error(error.message);
+            throw new APIErrorResponse(
+                error.message || 'An unknown error occurred',
+                500,
+                null,
+            );
         }
     }
 };
 
-export const apiGet = <T>(
+// Specific API methods
+export const apiGet = async <T>(
     endpoint: string,
     customHeaders?: Record<string, string>,
-) => apiRequest<T>('GET', endpoint, null, customHeaders);
+): Promise<T> => {
+    const response = await apiRequest<T>(
+        'GET',
+        endpoint,
+        undefined,
+        customHeaders,
+    );
+    return response.data;
+};
 
-export const apiPost = <T>(
+export const apiPost = async <T>(
     endpoint: string,
-    data?: any,
+    data?: Record<string, unknown>,
     customHeaders?: Record<string, string>,
-) => apiRequest<T>('POST', endpoint, data, customHeaders);
+): Promise<T> => {
+    const response = await apiRequest<T>('POST', endpoint, data, customHeaders);
+    return response.data;
+};
 
-export const apiPut = <T>(
+export const apiPut = async <T>(
     endpoint: string,
-    data?: any,
+    data?: Record<string, unknown>,
     customHeaders?: Record<string, string>,
-) => apiRequest<T>('PUT', endpoint, data, customHeaders);
+): Promise<T> => {
+    const response = await apiRequest<T>('PUT', endpoint, data, customHeaders);
+    return response.data;
+};
 
-export const apiDelete = <T>(
+export const apiDelete = async <T>(
     endpoint: string,
     customHeaders?: Record<string, string>,
-) => apiRequest<T>('DELETE', endpoint, null, customHeaders);
+): Promise<T> => {
+    const response = await apiRequest<T>(
+        'DELETE',
+        endpoint,
+        undefined,
+        customHeaders,
+    );
+    return response.data;
+};
 
 export default api;
