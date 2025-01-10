@@ -18,8 +18,6 @@ services:
             dockerfile: Dockerfile
         ports:
             - '3456:3456'
-        environment:
-            VITE_API_URL: 'http://localhost:3455'
         volumes:
             - ./poefree-client:/app
             - /app/node_modules

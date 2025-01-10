@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import UsersPage from './pages/UsersPage';
 import FeedPage from './pages/FeedPage';
-import UserProfile from './pages/UserProfile';
 import MyWork from './pages/MyWork';
 import Auth from './pages/Auth';
 import { getServerHealth } from './api/healthService';
 import Loading from './components/Loading';
+import { clearUserSession } from './session/sessionHandler';
+import ProfilePage from './pages/ProfilePage';
 
 const App: React.FC = () => {
-    const [serverHealthy, setServerHealthy] = useState(false);
+    const [serverHealthy, setServerHealthy] = useState(true);
 
     useEffect(() => {
         const checkServerHealth = async () => {
             const isHealthy = await getServerHealth();
-            if (isHealthy) {
-                setServerHealthy(true);
-            }
+            setServerHealthy(isHealthy);
         };
 
         const intervalId = setInterval(
@@ -28,6 +26,9 @@ const App: React.FC = () => {
 
         if (serverHealthy) {
             clearInterval(intervalId);
+        } else {
+            setServerHealthy(false);
+            clearUserSession();
         }
 
         return () => clearInterval(intervalId);
@@ -44,8 +45,7 @@ const App: React.FC = () => {
                     <Route path="/" element={<FeedPage />} />
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/work" element={<MyWork />} />
-                    <Route path="/users" element={<UsersPage />} />
-                    <Route path="/users/:userId" element={<UserProfile />} />
+                    <Route path="/profile" element={<ProfilePage />} />
                 </Routes>
             )}
         </Router>

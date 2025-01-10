@@ -43,6 +43,7 @@ export const registerUser = async (
             id: savedUser._id as string,
             username: savedUser.username,
         };
+        console.info('Successful user registration', req.session.user);
 
         res.status(StatusCodes.CREATED).json(
             successResponse(

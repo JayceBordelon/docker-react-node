@@ -1,14 +1,8 @@
-import { apiPost } from './apiConfig';
-import { ENDPOINTS } from './endpoints';
+import { ENDPOINTS } from '../constants/contants';
+import { apiGet } from './apiConfig';
 
 export const getServerHealth = async (): Promise<boolean> => {
-    return apiPost(ENDPOINTS.health)
-        .then((res) => {
-            console.log(res);
-            return true;
-        })
-        .catch((err) => {
-            console.error(err);
-            return false;
-        });
+    return apiGet(ENDPOINTS.health)
+        .then(() => true)
+        .catch(() => false);
 };

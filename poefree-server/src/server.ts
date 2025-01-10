@@ -55,7 +55,7 @@ console.info('[4/5] Routes established...');
 // Start server
 app.listen(PORT, '0.0.0.0', async () => {
     await connectToMongo(MONGO_URI);
-    console.info('Sever is LIVE & HEALTHY!');
+    console.info(`Sever is LIVE & HEALTHY on port ${PORT}!`);
 });
 
 // Setup graceful shutdown

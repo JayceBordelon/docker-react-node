@@ -14,14 +14,14 @@ const Logo = () => {
 const NavMenu = () => {
     return (
         <span className="nav-menu">
+            <Link to="/" className="nav-link">
+                Feed
+            </Link>
             <Link to="/work" className="nav-link">
                 My Work
             </Link>
-            <Link to="/users" className="nav-link">
-                Users
-            </Link>
-            <Link to="/" className="nav-link">
-                Feed
+            <Link to="/profile" className="nav-link">
+                Profile
             </Link>
         </span>
     );

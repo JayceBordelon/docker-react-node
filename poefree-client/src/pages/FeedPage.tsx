@@ -1,5 +1,7 @@
 import Layout from '../components/Layout';
+import { useAuthValidation } from '../hooks/hooks';
 
 export default function FeedPage() {
-    return <Layout children={<h1>Hello</h1>} />;
+    useAuthValidation();
+    return <Layout children={<h1>Poems</h1>} />;
 }

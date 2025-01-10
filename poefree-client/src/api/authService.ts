@@ -1,7 +1,7 @@
 import { apiPost } from './apiConfig';
 import { UserRegistrationPayload, UserLoginPayload } from '../types/payloads';
 import { UserAuthResponse } from '../types/responses';
-import { ENDPOINTS } from './endpoints';
+import { ENDPOINTS } from '../constants/contants';
 
 export const registerUser = async (
     payload: UserRegistrationPayload,
