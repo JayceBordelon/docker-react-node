@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "git-synch": "git fetch && git pull && cd poefree-client && npm run format && cd ../poefree-server && npm run format && cd .. && git add . && git commit -am 'auto-committing' && git push && docker-compose down",
+        "git-synch": "git fetch && git pull && cd poefree-client && npm run format && cd ../poefree-server && npm run format && cd .. && git add . && git commit -am \"${npm_config_m:-auto-committing}\" && git push && docker-compose down",
         "poefree": "docker-compose down && docker-compose up --build"
     }
 }
