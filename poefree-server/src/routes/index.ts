@@ -9,7 +9,7 @@ router.use('/user', sanitizeInputs, userRoutes);
 router.use('/poem', sanitizeInputs, poemRoutes);
 
 // Return all routes for the API
-router.get('/', (req: Request, res: Response) => {
+router.post('/', (req: Request, res: Response) => {
     const routes = [
         {
             path: '/user',

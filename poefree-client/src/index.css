@@ -1,4 +1,5 @@
 @import url('./assets/styles/root.css');
+@import url('./assets/styles/loading.css');
 @import url('./assets/styles/nav.css');
 @import url('./assets/styles/auth.css');
 @import url('./assets/styles/layout.css');
@@ -72,4 +73,8 @@ h6 {
 #root,
 #__next {
     isolation: isolate;
+}
+
+.screen-height {
+    height: 100vh;
 }

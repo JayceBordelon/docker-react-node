@@ -1,28 +1,28 @@
 services:
-  poefree-server:
-    build:
-      context: ./poefree-server
-      dockerfile: Dockerfile
-    ports:
-      - "${PORT:-3455}:3455"
-    env_file:
-      - ./poefree-server/.env.${ENV:-dev}
-    volumes:
-      - ./poefree-server:/app
-      - /app/node_modules
-    command: ["npm", "run", "dev"]
+    poefree-server:
+        build:
+            context: ./poefree-server
+            dockerfile: Dockerfile
+        ports:
+            - '${PORT:-3455}:3455'
+        env_file:
+            - ./poefree-server/.env
+        volumes:
+            - ./poefree-server:/app
+            - /app/node_modules
+        command: ['npm', 'run', 'dev']
 
-  poefree-client:
-    build:
-      context: ./poefree-client
-      dockerfile: Dockerfile
-    ports:
-      - "3456:3456"
-    environment:
-      VITE_API_URL: "http://localhost:3455"
-    volumes:
-      - ./poefree-client:/app
-      - /app/node_modules
-    command: ["npm", "run", "dev"]
-    depends_on:
-      - poefree-server
+    poefree-client:
+        build:
+            context: ./poefree-client
+            dockerfile: Dockerfile
+        ports:
+            - '3456:3456'
+        environment:
+            VITE_API_URL: 'http://localhost:3455'
+        volumes:
+            - ./poefree-client:/app
+            - /app/node_modules
+        command: ['npm', 'run', 'dev']
+        depends_on:
+            - poefree-server

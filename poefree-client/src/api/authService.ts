@@ -1,17 +1,16 @@
 import { apiPost } from './apiConfig';
 import { UserRegistrationPayload, UserLoginPayload } from '../types/payloads';
+import { UserAuthResponse } from '../types/responses';
+import { ENDPOINTS } from './endpoints';
 
-const ENDPOINTS = {
-    register: '/user/register',
-    login: '/user/login',
-};
-
-export const registerUser = async <T>(
+export const registerUser = async (
     payload: UserRegistrationPayload,
-): Promise<T> => {
-    return await apiPost<T>(ENDPOINTS.register, payload);
+): Promise<UserAuthResponse> => {
+    return await apiPost<UserAuthResponse>(ENDPOINTS.register, payload);
 };
 
-export const loginUser = async <T>(payload: UserLoginPayload): Promise<T> => {
-    return await apiPost<T>(ENDPOINTS.login, payload);
+export const loginUser = async (
+    payload: UserLoginPayload,
+): Promise<UserAuthResponse> => {
+    return await apiPost<UserAuthResponse>(ENDPOINTS.login, payload);
 };
