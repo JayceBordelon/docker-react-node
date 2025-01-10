@@ -3,3 +3,4 @@ dist/
 .env*
 test*
 .DS_Store
+src/uploads/profile/

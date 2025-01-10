@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { GiQuillInk } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
+import { ENDPOINTS } from '../constants/contants';
+import { getRandomProfileImage } from '../api/imageService';
+import { getUserSession } from '../session/sessionHandler';
+import ManageProfileModal from './ManageProfileModal';
 
 const Logo = () => {
     return (
@@ -12,6 +16,11 @@ const Logo = () => {
 };
 
 const NavMenu = () => {
+    const [editingProfile, setEditingProfile] = useState<boolean>(false);
+    const session = getUserSession();
+    const profileImageUri = session // TODO: circle back to use this
+        ? `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/profile/${session.username}`
+        : `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/default/${getRandomProfileImage()}`;
     return (
         <span className="nav-menu">
             <Link to="/" className="nav-link">
@@ -20,9 +29,16 @@ const NavMenu = () => {
             <Link to="/work" className="nav-link">
                 My Work
             </Link>
-            <Link to="/profile" className="nav-link">
-                Profile
-            </Link>
+            <img
+                onClick={() => setEditingProfile(true)}
+                className="profile-icon"
+                src={`${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/default/${getRandomProfileImage()}`}
+                alt="pic"
+                title={session?.username}
+            />
+            {editingProfile && (
+                <ManageProfileModal setEditingProfile={setEditingProfile} />
+            )}
         </span>
     );
 };

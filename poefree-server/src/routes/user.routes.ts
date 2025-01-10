@@ -1,5 +1,10 @@
 import { Router } from 'express';
-import { registerUser, loginUser } from '../controllers/user.controller';
+import upload from '../config/multerConfig';
+import {
+    registerUser,
+    loginUser,
+    updateUserImage,
+} from '../controllers/user.controller';
 
 const router = Router();
 
@@ -8,5 +13,8 @@ router.post('/register', registerUser);
 
 // Login a user
 router.post('/login', loginUser);
+
+// Update user image
+router.post('/profile/image', upload.single('image'), updateUserImage);
 
 export default router;

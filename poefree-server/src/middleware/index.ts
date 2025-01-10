@@ -11,9 +11,11 @@ export const setupMiddleware = (app: express.Application): void => {
     );
 
     app.use((req: Request, res: Response, next: NextFunction) => {
-        console.log(
-            `Received ${req.method} request to ${req.url} from ${req.hostname}`,
-        );
+        if (req.method !== 'GET') {
+            console.log(
+                `Received ${req.method} request to ${req.url} from ${req.hostname}`,
+            );
+        }
         next();
     });
 

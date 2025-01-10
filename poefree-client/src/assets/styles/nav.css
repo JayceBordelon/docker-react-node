@@ -48,6 +48,7 @@ nav {
     flex-direction: row;
     min-width: var(--nav-menu-width);
     justify-content: space-between;
+    align-items: center;
 }
 
 .nav-menu .nav-link {
@@ -80,6 +81,13 @@ nav {
 .nav-menu .nav-link:hover::after {
     width: 100%;
     left: 0;
+}
+
+.profile-icon {
+    height: calc(var(--nav-height) * 0.8);
+    border-radius: 50%;
+    width: auto;
+    position: relative;
 }
 
 @media only screen and (max-width: 600px) {

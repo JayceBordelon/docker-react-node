@@ -6,7 +6,6 @@ import Auth from './pages/Auth';
 import { getServerHealth } from './api/healthService';
 import Loading from './components/Loading';
 import { clearUserSession } from './session/sessionHandler';
-import ProfilePage from './pages/ProfilePage';
 
 const App: React.FC = () => {
     const [serverHealthy, setServerHealthy] = useState(true);
@@ -45,7 +44,6 @@ const App: React.FC = () => {
                     <Route path="/" element={<FeedPage />} />
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/work" element={<MyWork />} />
-                    <Route path="/profile" element={<ProfilePage />} />
                 </Routes>
             )}
         </Router>

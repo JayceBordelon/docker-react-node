@@ -1,12 +1,7 @@
 import express from 'express';
 import path from 'path';
-import {
-    PORT,
-    NODE_ENV,
-    MONGO_URI,
-    SESSION_SECRET,
-} from './config/validateEnv';
-import { connectToMongo } from './config/db';
+import { PORT, NODE_ENV, MONGO_URI, SESSION_SECRET } from './config/envConfig';
+import { connectToMongo } from './config/dbConfig';
 import { setupMiddleware } from './middleware';
 import routes from './routes';
 import session from 'express-session';

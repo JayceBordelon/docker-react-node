@@ -1,0 +1,33 @@
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.modal-body {
+    background-color: var(--bg);
+    z-index: 3;
+    width: 800px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.seperator {
+    border-top: var(--clean-border);
+    width: 100%;
+    padding: 1rem 0 0 0 1rem;
+}
+
+.modal-body h2 {
+    font-family: var(--typewriter-font);
+    color: var(--accent);
+    font-weight: 600;
+}
