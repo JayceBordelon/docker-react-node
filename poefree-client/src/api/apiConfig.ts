@@ -29,17 +29,17 @@ export const apiRequest = async <T>(
     } catch (error: any) {
         if (error.response) {
             throw new APIErrorResponse(
-                error.response.data.message || 'Request failed',
+                error.response.data.message,
                 error.response.status,
-                error.response.data,
+                error.response.data.errors,
             );
         } else if (error.request) {
-            throw new APIErrorResponse('No response from server', 500, null);
+            throw new APIErrorResponse('No response from server', 500, []);
         } else {
             throw new APIErrorResponse(
                 error.message || 'An unknown error occurred',
                 500,
-                null,
+                [],
             );
         }
     }

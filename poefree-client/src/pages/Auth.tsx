@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GiQuillInk } from 'react-icons/gi';
 import { loginUser, registerUser } from '../api/authService';
-import { AxiosError } from 'axios';
 import { APIErrorResponse } from '../types/errors';
+import { getUserSession, populateUserSession } from '../session/sessionHandler';
+import { UserAuthResponse } from '../types/responses';
+import { useNavigate } from 'react-router-dom';
 
 type AuthFormProps = {
     setLogin: React.Dispatch<React.SetStateAction<boolean>>;
@@ -27,11 +29,21 @@ const FormBody = ({ setLogin, formType }: AuthFormProps) => {
     const [formState, setFormState] = useState<Record<string, string>>(
         formType === 'login'
             ? { email: '', password: '' }
-            : { username: '', email: '', password: '' },
+            : {
+                  username: '',
+                  email: '',
+                  password: '',
+                  passwordConfirmation: '',
+              },
     );
-
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (getUserSession()) {
+            navigate('/');
+        }
+    }, []);
 
     const formFields: FormField[] =
         formType === 'login'
@@ -68,6 +80,12 @@ const FormBody = ({ setLogin, formType }: AuthFormProps) => {
                       placeholder: 'Password',
                       required: true,
                   },
+                  {
+                      type: 'password',
+                      name: 'passwordConfirmation',
+                      placeholder: 'Password confirmation',
+                      required: true,
+                  },
               ];
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,29 +110,53 @@ const FormBody = ({ setLogin, formType }: AuthFormProps) => {
                     return;
                 }
 
-                const response = await loginUser({ email, password });
-                console.log('Login Successful:', response);
-                // Handle successful login, e.g., save token or redirect
+                const response = (await loginUser({
+                    email,
+                    password,
+                })) as UserAuthResponse;
+                populateUserSession(response.data)
+                    .then(() => {
+                        navigate('/');
+                    })
+                    .catch(() => {
+                        throw new APIErrorResponse('', 500, [
+                            'Error setting user session. Try again later',
+                        ]);
+                    });
             } else {
-                const { username, email, password } = formState;
+                const { username, email, password, passwordConfirmation } =
+                    formState;
 
-                if (!username || !email || !password) {
+                if (!username || !email || !password || !passwordConfirmation) {
                     setError('Please fill out all required fields.');
                     return;
                 }
 
-                const response = await registerUser({
+                if (passwordConfirmation !== password) {
+                    setError(
+                        'Your password and password confirmation do not match.',
+                    );
+                    return;
+                }
+
+                const response = (await registerUser({
                     username,
                     email,
                     password,
-                });
-                console.log('Registration Successful:', response);
-                setLogin(true); // Switch to login form after registration
+                })) as UserAuthResponse;
+                populateUserSession(response.data)
+                    .then(() => {
+                        navigate('/');
+                    })
+                    .catch(() => {
+                        throw new APIErrorResponse('', 500, [
+                            'Error setting user session. Try again later',
+                        ]);
+                    });
             }
         } catch (error: APIErrorResponse | any) {
-            console.error(error);
-            if (error && error.data) {
-                const serverErrors = error.data.errors || [error.data.message];
+            if (error) {
+                const serverErrors = error.errors || [error.message];
                 setError(serverErrors.join(' --&-- '));
             } else {
                 setError('An unexpected error occurred. Please try again.');
