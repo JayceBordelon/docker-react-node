@@ -1,6 +1,9 @@
+import { PAGE_ROUTES } from '../constants/contants';
+
 export type UserSession = {
     id: string;
     username: string;
+    profileImage: string | undefined;
 };
 
 export const populateUserSession = async (userInfo: UserSession) => {
@@ -22,6 +25,7 @@ export const getUserSession = (): UserSession | null => {
     }
 };
 
-export const clearUserSession = () => {
+export const handleLogout = () => {
     localStorage.removeItem('user');
+    window.location.href = PAGE_ROUTES.auth;
 };

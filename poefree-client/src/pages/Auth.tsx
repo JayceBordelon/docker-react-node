@@ -114,6 +114,7 @@ const FormBody = ({ setLogin, formType }: AuthFormProps) => {
                     email,
                     password,
                 })) as UserAuthResponse;
+                console.info(response);
                 populateUserSession(response.data)
                     .then(() => {
                         navigate('/');

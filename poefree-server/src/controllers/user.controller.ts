@@ -40,12 +40,7 @@ export const registerUser = async (
 
         const savedUser = await newUser.save();
 
-        // Create a session for the user
-        req.session.user = {
-            id: savedUser._id as string,
-            username: savedUser.username,
-        };
-        console.info('Successful user registration', req.session.user);
+        console.info('Successful user registration', savedUser);
 
         res.status(StatusCodes.CREATED).json(
             successResponse(
@@ -103,19 +98,14 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
             return;
         }
 
-        // Create a session for the user
-        req.session.user = {
-            id: user._id as string,
-            username: user.username,
-        };
-
         res.status(StatusCodes.OK).json(
             successResponse(
                 {
                     id: user._id,
                     username: user.username,
+                    profileImage: user.profileImage,
                 },
-                ReasonPhrases.OK, // "OK"
+                ReasonPhrases.OK,
             ),
         );
     } catch (error) {
@@ -181,7 +171,6 @@ export const updateUserImage = async (
             if (idRegex.test(file)) {
                 const filePath = path.join(uploadDir, file);
                 fs.unlinkSync(filePath);
-                console.info(`Removed old profile image: ${filePath}`);
             }
         });
 
@@ -190,14 +179,28 @@ export const updateUserImage = async (
         const filePath = path.join(uploadDir, `${id}${fileExtension}`);
         fs.writeFileSync(filePath, req.file.buffer); // Write the file to the destination
 
-        console.info(`New profile image saved at: ${filePath}`);
+        // Update the user's profile image in the database
+        const user = await User.findById(id);
+        if (!user) {
+            res.status(404).json(errorResponse('User not found'));
+            return;
+        }
+
+        user.profileImage = `${id}${fileExtension}`;
+        await user.save(); // Save changes to the database
+
         res.status(200).json(
             successResponse(
-                { filePath },
+                {
+                    id: user._id,
+                    username: user.username,
+                    profileImage: user.profileImage,
+                },
                 'Profile image updated successfully!',
             ),
         );
     } catch (error) {
+        console.error('Error updating user image:', error);
         res.status(500).json(
             errorResponse('Server error while uploading image', [error]),
         );

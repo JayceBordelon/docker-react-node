@@ -86,7 +86,7 @@ nav {
 .profile-icon {
     height: calc(var(--nav-height) * 0.8);
     border-radius: 50%;
-    width: auto;
+    width: calc(var(--nav-height) * 0.8);
     position: relative;
 }
 

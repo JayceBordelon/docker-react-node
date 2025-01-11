@@ -8,6 +8,7 @@ export interface IUser extends Document {
     username: string;
     email: string;
     password: string;
+    profileImage: string;
     subscribers: mongoose.Types.ObjectId[];
     subscribedTo: mongoose.Types.ObjectId[];
     poems: mongoose.Types.ObjectId[];
@@ -21,6 +22,7 @@ const UserSchema: Schema<IUser> = new Schema(
         username: { type: String, required: true, unique: true },
         email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
+        profileImage: { type: String, unique: true, default: '' },
         subscribers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
         subscribedTo: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
         poems: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Poem' }],
@@ -47,28 +49,6 @@ UserSchema.methods.comparePassword = async function (
     candidatePassword: string,
 ): Promise<boolean> {
     return bcrypt.compare(candidatePassword, this.password);
-};
-
-// Static Method for Registration
-UserSchema.statics.register = async function (
-    username: string,
-    email: string,
-    password: string,
-): Promise<IUser> {
-    const user = new this({ username, email, password });
-    return user.save();
-};
-
-// Static Method for Login
-UserSchema.statics.login = async function (
-    email: string,
-    password: string,
-): Promise<IUser | null> {
-    const user = await this.findOne({ email });
-    if (user && (await user.comparePassword(password))) {
-        return user;
-    }
-    return null;
 };
 
 const User: Model<IUser> = mongoose.model<IUser>('User', UserSchema);

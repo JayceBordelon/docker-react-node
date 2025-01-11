@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { useAuthValidation } from '../hooks/hooks';
 import { uploadUserProfileImage } from '../api/imageService';
-import { UserSession } from '../session/sessionHandler';
+import { UserSession, handleLogout } from '../session/sessionHandler';
+import { ENDPOINTS } from '../constants/contants';
 
 interface ProfileModalProps {
     setEditingProfile: React.Dispatch<React.SetStateAction<boolean>>;
+    setProfileImageUri: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function ManageProfileModal({
     setEditingProfile,
+    setProfileImageUri,
 }: ProfileModalProps) {
     const session: UserSession | null = useAuthValidation();
     const [file, setFile] = useState<File | null>(null);
@@ -49,13 +52,15 @@ export default function ManageProfileModal({
         setSuccessMessage(null);
 
         try {
-            console.info('Attempting to upload image');
-            const response = await uploadUserProfileImage(formData); // POST request
-            console.info('Response:', response);
+            const res = await uploadUserProfileImage(formData);
+            if (res.data.profileImage) {
+                setProfileImageUri(
+                    `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/profile/${res.data.profileImage}?t=${Date.now()}`,
+                );
+            }
             setSuccessMessage('Profile image updated successfully!');
-        } catch (error) {
-            console.error('Error uploading file:', error);
-            setError('Failed to upload image.');
+        } catch (error: any) {
+            setError(error.message);
         } finally {
             setLoading(false);
         }
@@ -85,6 +90,10 @@ export default function ManageProfileModal({
                 {successMessage && (
                     <p className="success-message">{successMessage}</p>
                 )}
+                <div className="seperator"></div>
+                <button type="button" onClick={() => handleLogout()}>
+                    Log Out
+                </button>
             </div>
         </div>
     );

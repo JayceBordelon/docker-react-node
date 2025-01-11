@@ -18,9 +18,11 @@ const Logo = () => {
 const NavMenu = () => {
     const [editingProfile, setEditingProfile] = useState<boolean>(false);
     const session = getUserSession();
-    const profileImageUri = session // TODO: circle back to use this
-        ? `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/profile/${session.username}`
-        : `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/default/${getRandomProfileImage()}`;
+    const [profileImageUri, setProfileImageUri] = useState<string>(
+        session?.profileImage
+            ? `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/profile/${session.profileImage}`
+            : `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/default/${getRandomProfileImage()}`,
+    );
     return (
         <span className="nav-menu">
             <Link to="/" className="nav-link">
@@ -32,12 +34,15 @@ const NavMenu = () => {
             <img
                 onClick={() => setEditingProfile(true)}
                 className="profile-icon"
-                src={`${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/default/${getRandomProfileImage()}`}
+                src={profileImageUri}
                 alt="pic"
                 title={session?.username}
             />
             {editingProfile && (
-                <ManageProfileModal setEditingProfile={setEditingProfile} />
+                <ManageProfileModal
+                    setEditingProfile={setEditingProfile}
+                    setProfileImageUri={setProfileImageUri}
+                />
             )}
         </span>
     );
