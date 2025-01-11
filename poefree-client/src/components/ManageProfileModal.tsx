@@ -3,6 +3,7 @@ import { useAuthValidation } from '../hooks/hooks';
 import { uploadUserProfileImage } from '../api/imageService';
 import { UserSession, handleLogout } from '../session/sessionHandler';
 import { ENDPOINTS } from '../constants/contants';
+import Loading from './Loading';
 
 interface ProfileModalProps {
     setEditingProfile: React.Dispatch<React.SetStateAction<boolean>>;
@@ -44,8 +45,8 @@ export default function ManageProfileModal({
         }
 
         const formData = new FormData();
-        formData.append('image', file); // Attach the file
-        formData.append('id', session?.id as string); // Attach the user ID
+        formData.append('image', file);
+        formData.append('id', session?.id as string);
 
         setLoading(true);
         setError(null);
@@ -90,6 +91,7 @@ export default function ManageProfileModal({
                 {successMessage && (
                     <p className="success-message">{successMessage}</p>
                 )}
+                {loading && <Loading size={25} message="" />}
                 <div className="seperator"></div>
                 <button type="button" onClick={() => handleLogout()}>
                     Log Out

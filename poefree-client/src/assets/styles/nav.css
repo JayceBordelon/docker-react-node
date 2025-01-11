@@ -90,6 +90,10 @@ nav {
     position: relative;
 }
 
+.profile-icon:hover {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
     :root {
         --nav-menu-width: 100%;
