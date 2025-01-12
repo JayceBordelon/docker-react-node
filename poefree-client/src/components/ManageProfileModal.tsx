@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useAuthValidation } from '../hooks/hooks';
 import { uploadUserProfileImage } from '../api/imageService';
-import { UserSession, handleLogout } from '../session/sessionHandler';
 import { ENDPOINTS } from '../constants/contants';
 import Loading from './Loading';
+import { handleSessionLogout, updateUserSession } from '../util/sessionHandler';
+import { useNavigate } from 'react-router-dom';
+import { IoClose } from 'react-icons/io5';
 
 interface ProfileModalProps {
     setEditingProfile: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,11 +15,11 @@ export default function ManageProfileModal({
     setEditingProfile,
     setProfileImageUri,
 }: ProfileModalProps) {
-    const session: UserSession | null = useAuthValidation();
     const [file, setFile] = useState<File | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [successMessage, setSuccessMessage] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
+    const navigate = useNavigate();
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         if (event.target.files && event.target.files.length > 0) {
@@ -46,7 +47,6 @@ export default function ManageProfileModal({
 
         const formData = new FormData();
         formData.append('image', file);
-        formData.append('id', session?.id as string);
 
         setLoading(true);
         setError(null);
@@ -59,6 +59,7 @@ export default function ManageProfileModal({
                     `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/profile/${res.data.profileImage}?t=${Date.now()}`,
                 );
             }
+            updateUserSession(res.data);
             setSuccessMessage('Profile image updated successfully!');
         } catch (error: any) {
             setError(error.message);
@@ -72,10 +73,13 @@ export default function ManageProfileModal({
             className="modal-backdrop"
             onClick={() => setEditingProfile(false)}
         >
-            <div
-                className="modal-body"
-                onClick={(e) => e.stopPropagation()} // Prevent closing the modal when clicking inside it
-            >
+            <div className="modal-body" onClick={(e) => e.stopPropagation()}>
+                <IoClose
+                    title="close modal"
+                    className="close-modal-x"
+                    size={35}
+                    onClick={() => setEditingProfile(false)}
+                />
                 <h2>Edit Profile</h2>
                 <div className="seperator"></div>
                 <h3>Change/Set Profile Image</h3>
@@ -84,16 +88,21 @@ export default function ManageProfileModal({
                     accept="image/*"
                     onChange={handleFileChange}
                 />
-                <button onClick={sendFileToServer} disabled={loading}>
-                    {loading ? 'Uploading...' : 'Upload'}
-                </button>
+                {file && (
+                    <button onClick={sendFileToServer} disabled={loading}>
+                        {loading ? 'Uploading ...' : `Upload ${file.name}`}
+                    </button>
+                )}
                 {error && <p className="error-message">{error}</p>}
                 {successMessage && (
                     <p className="success-message">{successMessage}</p>
                 )}
                 {loading && <Loading size={25} message="" />}
                 <div className="seperator"></div>
-                <button type="button" onClick={() => handleLogout()}>
+                <button
+                    type="button"
+                    onClick={() => handleSessionLogout(navigate)}
+                >
                     Log Out
                 </button>
             </div>

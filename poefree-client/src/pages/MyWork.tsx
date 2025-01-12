@@ -1,11 +1,12 @@
 import { useAuthValidation } from '../hooks/hooks';
 import Layout from '../components/Layout';
-import Loading from '../components/Loading';
+import { getUserFromSession } from '../util/sessionHandler';
 
 export default function MyWork() {
-    const session = useAuthValidation();
-    if (!session) {
-        return <Loading size={75} message="" />;
+    useAuthValidation();
+    const session = getUserFromSession();
+    if (session === null) {
+        return <>ERRORORROROROROR</>;
     }
     return <Layout children={<h1>{session.username}'s Poetry</h1>} />;
 }

@@ -1,23 +1,25 @@
 import cors from 'cors';
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
+import { setupExpressSession } from './session';
 
 export const setupMiddleware = (app: express.Application): void => {
+    setupExpressSession(app);
+
     app.use(
         cors({
-            origin: '*',
-            methods: ['GET', 'POST'],
-            allowedHeaders: ['Content-Type', 'Authorization'],
+            origin: process.env.CLIENT,
+            credentials: true,
+            methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+            allowedHeaders: [
+                'Content-Type',
+                'Authorization',
+                'withCredentials',
+            ],
         }),
     );
 
-    app.use((req: Request, res: Response, next: NextFunction) => {
-        if (req.method !== 'GET') {
-            console.log(
-                `Received ${req.method} request to ${req.url} from ${req.hostname}`,
-            );
-        }
-        next();
-    });
+    app.options('*', cors());
 
     app.use(express.json());
+    app.use(express.urlencoded({ extended: true }));
 };

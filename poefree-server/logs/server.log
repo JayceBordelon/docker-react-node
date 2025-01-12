@@ -1,0 +1,26 @@
+2025-01-12 02:32:06 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:32:06 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:32:06 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:32:06 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:32:59 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:32:59 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:32:59 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:32:59 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:33:26 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:33:26 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:33:26 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:33:26 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:33:27 [[37minfo[39m]: Server is LIVE & HEALTHY on port 3455
+2025-01-12 02:33:48 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:33:48 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:33:48 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:33:48 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:33:49 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 02:34:01 [[37minfo[39m]: Clearing session for: jaycepod
+2025-01-12 02:34:01 [[37minfo[39m]: Session cleared successfully for: Unknown user
+2025-01-12 02:34:08 [[37minfo[39m]: Login attempt: b.jayce@wustl.edu
+2025-01-12 02:34:08 [[37minfo[39m]: User logged in successfully: jaycepod
+2025-01-12 02:34:23 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 02:34:23 [[37minfo[39m]: Profile image updated successfully for: jaycepod
+2025-01-12 02:35:01 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 02:35:01 [[37minfo[39m]: Profile image updated successfully for: jaycepod

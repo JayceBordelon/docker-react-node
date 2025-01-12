@@ -4,6 +4,7 @@ import {
     registerUser,
     loginUser,
     updateUserImage,
+    clearUserSession,
 } from '../controllers/user.controller';
 
 const router = Router();
@@ -16,5 +17,8 @@ router.post('/login', loginUser);
 
 // Update user image
 router.post('/profile/image', upload.single('image'), updateUserImage);
+
+// Logout (Destroy session)
+router.post('/logout', clearUserSession);
 
 export default router;

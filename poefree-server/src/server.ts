@@ -5,27 +5,24 @@ import { connectToMongo } from './config/dbConfig';
 import { setupMiddleware } from './middleware';
 import routes from './routes';
 import { setupGracefulShutdown } from './utils/shutdown';
+import { logger } from './utils/loggerUtil';
 
 const app = express();
 
-// Setup middleware
 setupMiddleware(app);
-console.info('[1/4] Express middleware up...');
+logger.info('[1/4] Express middleware initialized');
 
-// Serve static files from the uploads directory
 const uploadsPath = path.join(__dirname, './uploads/');
 app.use('/uploads', express.static(uploadsPath));
-console.info('[2/4] Statics included...');
+logger.info('[2/4] Static files configured at /uploads');
 
-// Routes
 app.use('/', routes);
-console.info('[3/4] Routes established...');
+logger.info('[3/4] Routes established');
 
-// Start server
 app.listen(PORT, '0.0.0.0', async () => {
     await connectToMongo(MONGO_URI);
-    console.info(`Sever is LIVE & HEALTHY on port ${PORT}!`);
+    logger.success(`SERVER LIVE ON PORT ${PORT}`);
 });
 
-// Setup graceful shutdown
 setupGracefulShutdown();
+logger.info('[4/4] Graceful shutdown configured');

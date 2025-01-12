@@ -8,6 +8,7 @@ export const ENDPOINTS = {
     health: '/',
     register: '/user/register',
     login: '/user/login',
+    logout: '/user/logout',
     uploadProfilePic: '/user/profile/image',
     imageBase: '/uploads',
 };

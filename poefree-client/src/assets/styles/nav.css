@@ -85,13 +85,32 @@ nav {
 
 .profile-icon {
     height: calc(var(--nav-height) * 0.8);
-    border-radius: 50%;
     width: calc(var(--nav-height) * 0.8);
+    border-radius: 50%;
     position: relative;
+    border: 4px solid var(--accent);
+    transition:
+        border-style 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .profile-icon:hover {
     cursor: pointer;
+    border-style: dashed;
+    border-color: var(--accent);
+    animation: pulse 2s infinite;
 }
 
 @media only screen and (max-width: 600px) {
