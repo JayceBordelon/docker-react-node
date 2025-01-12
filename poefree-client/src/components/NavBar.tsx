@@ -3,8 +3,8 @@ import { GiQuillInk } from 'react-icons/gi';
 import { Link } from 'react-router-dom';
 import { ENDPOINTS } from '../constants/contants';
 import { getRandomProfileImage } from '../api/imageService';
-import { getUserSession } from '../session/sessionHandler';
 import ManageProfileModal from './ManageProfileModal';
+import { getUserFromSession } from '../util/sessionHandler';
 
 const Logo = () => {
     return (
@@ -17,7 +17,7 @@ const Logo = () => {
 
 const NavMenu = () => {
     const [editingProfile, setEditingProfile] = useState<boolean>(false);
-    const session = getUserSession();
+    const session = getUserFromSession();
     const [profileImageUri, setProfileImageUri] = useState<string>(
         session?.profileImage
             ? `${import.meta.env.VITE_API_URL}${ENDPOINTS.imageBase}/profile/${session.profileImage}`

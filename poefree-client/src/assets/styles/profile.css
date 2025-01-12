@@ -25,6 +25,19 @@
     align-items: center;
     gap: 1rem;
     animation: slideDown 0.3s ease-in-out;
+    position: relative;
+}
+
+.close-modal-x {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--text);
+}
+
+.close-modal-x:hover {
+    color: var(--hover-color);
+    cursor: pointer;
 }
 
 .modal-body h2 {

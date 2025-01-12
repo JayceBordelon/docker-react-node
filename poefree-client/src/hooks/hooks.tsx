@@ -1,19 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { UserSession, getUserSession } from '../session/sessionHandler';
+import { userIsLoggedIn } from '../util/sessionHandler';
+import { PAGE_ROUTES } from '../constants/contants';
 
-export const useAuthValidation = (): UserSession | null => {
+export const useAuthValidation = (): boolean => {
     const navigate = useNavigate();
-    const [session, setSession] = useState<UserSession | null>(null);
-
-    useEffect(() => {
-        const userSession = getUserSession();
-        if (!userSession) {
-            navigate('/auth');
-        } else {
-            setSession(userSession);
-        }
-    }, [navigate]);
-
-    return session;
+    if (!userIsLoggedIn()) {
+        navigate(PAGE_ROUTES.auth);
+        return false;
+    }
+    return true;
 };

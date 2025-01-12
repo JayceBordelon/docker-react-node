@@ -1,0 +1,131 @@
+2025-01-12 02:32:06 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:32:06 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:32:06 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:32:06 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:32:59 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:32:59 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:32:59 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:32:59 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:33:26 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:33:26 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:33:26 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:33:26 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:33:27 [[37minfo[39m]: Server is LIVE & HEALTHY on port 3455
+2025-01-12 02:33:48 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 02:33:48 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 02:33:48 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 02:33:48 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 02:33:49 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 02:34:01 [[37minfo[39m]: Clearing session for: jaycepod
+2025-01-12 02:34:01 [[37minfo[39m]: Session cleared successfully for: Unknown user
+2025-01-12 02:34:08 [[37minfo[39m]: Login attempt: b.jayce@wustl.edu
+2025-01-12 02:34:08 [[37minfo[39m]: User logged in successfully: jaycepod
+2025-01-12 02:34:23 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 02:34:23 [[37minfo[39m]: Profile image updated successfully for: jaycepod
+2025-01-12 02:35:01 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 02:35:01 [[37minfo[39m]: Profile image updated successfully for: jaycepod
+2025-01-12 15:47:45 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:47:45 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:47:45 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:47:45 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:47:45 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:47:59 [[37minfo[39m]: Clearing session for: jaycepod
+2025-01-12 15:47:59 [[37minfo[39m]: Session cleared successfully for: Unknown user
+2025-01-12 15:50:05 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:50:05 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:50:05 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:50:05 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:50:05 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:50:46 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:50:46 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:50:46 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:50:46 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:50:47 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:50:49 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:50:49 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:50:49 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:50:49 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:50:50 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:50:56 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:50:56 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:50:56 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:50:56 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:50:57 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:51:20 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:51:21 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:51:21 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:51:21 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:51:21 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:51:35 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:51:35 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:51:35 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:51:35 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:51:35 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:51:39 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:51:39 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:51:39 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:51:39 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:51:39 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:51:56 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:51:56 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:51:56 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:51:56 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:51:56 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:52:02 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:52:02 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:52:02 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:52:02 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:52:03 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:52:06 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:52:06 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:52:06 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:52:06 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:52:06 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:53:04 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:53:04 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:53:04 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:53:04 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:53:04 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:53:58 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:53:58 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:53:58 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:53:58 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:53:59 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:54:27 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:54:27 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:54:27 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:54:27 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:54:28 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 15:55:21 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 15:55:21 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 15:55:21 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 15:55:21 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 15:55:21 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 16:01:10 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 16:01:10 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 16:01:10 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 16:01:10 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 16:01:10 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 16:01:17 [[37minfo[39m]: Login attempt: b.jayce@wustl.edu
+2025-01-12 16:01:18 [[37minfo[39m]: User logged in successfully: jaycepod
+2025-01-12 16:01:24 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 16:01:24 [[37minfo[39m]: Profile image updated successfully for: jaycepod
+2025-01-12 16:06:15 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 16:06:15 [[1m[33mwarn[39m[22m]: Invalid file type uploaded by: jaycepod
+2025-01-12 16:06:22 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 16:06:23 [[37minfo[39m]: Profile image updated successfully for: jaycepod
+2025-01-12 16:07:11 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 16:07:11 [[37minfo[39m]: Profile image updated successfully for: jaycepod
+2025-01-12 21:12:28 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-12 21:12:28 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-12 21:12:28 [[37minfo[39m]: [3/4] Routes established
+2025-01-12 21:12:28 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-12 21:12:28 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-12 21:12:56 [[37minfo[39m]: Clearing session for: jaycepod
+2025-01-12 21:12:56 [[37minfo[39m]: Session cleared successfully for: Unknown user
+2025-01-12 21:13:06 [[37minfo[39m]: Login attempt: b.jayce@wustl.edu
+2025-01-12 21:13:07 [[37minfo[39m]: User logged in successfully: jaycepod
+2025-01-12 21:13:20 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 21:13:20 [[37minfo[39m]: Profile image updated successfully for: jaycepod
+2025-01-12 21:13:29 [[37minfo[39m]: Updating profile image for: jaycepod
+2025-01-12 21:13:29 [[37minfo[39m]: Profile image updated successfully for: jaycepod

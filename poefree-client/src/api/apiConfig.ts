@@ -4,7 +4,8 @@ import { APIErrorResponse } from '../types/errors';
 // Create an instance of Axios
 const api = axios.create({
     baseURL: import.meta.env.VITE_API_URL,
-    timeout: parseInt(import.meta.env.VITE_API_TIMEOUT || '5000'), // Default timeout
+    timeout: parseInt(import.meta.env.VITE_API_TIMEOUT || '5000'),
+    withCredentials: true,
 });
 
 // Base API request function
