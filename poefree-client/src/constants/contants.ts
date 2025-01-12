@@ -9,7 +9,7 @@ export const ENDPOINTS = {
     register: '/user/register',
     login: '/user/login',
     logout: '/user/logout',
-    uploadProfilePic: '/user/profile/image',
+    uploadProfilePic: '/user/image',
     imageBase: '/uploads',
 };
 

@@ -82,7 +82,7 @@ export default function ManageProfileModal({
                 />
                 <h2>Edit Profile</h2>
                 <div className="seperator"></div>
-                <h3>Change/Set Profile Image</h3>
+                <h3>Change Profile Picture</h3>
                 <input
                     type="file"
                     accept="image/*"
