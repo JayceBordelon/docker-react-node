@@ -216,9 +216,6 @@ export const clearUserSession = async (
         }
 
         res.clearCookie('connect.sid');
-        logger.success(
-            `Session cleared successfully for: ${req.session?.username || 'Unknown user'}`,
-        );
 
         res.status(StatusCodes.OK).json(
             successResponse(null, 'User session cleared successfully.'),
