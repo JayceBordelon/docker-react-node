@@ -11,7 +11,15 @@ const MyWorksMapped = () => {
             .then((poems) => setUserPoems(poems))
             .catch((err) => console.error(err));
     }, []);
-    return <>{JSON.stringify(userPoems)}</>;
+    return (
+        <>
+            {userPoems.length > 0 ? (
+                JSON.stringify(userPoems)
+            ) : (
+                <h3>No Poems for you</h3>
+            )}
+        </>
+    );
 };
 
 export default function MyWork() {
