@@ -12,3 +12,11 @@ export type UserLoginPayload = {
 export type ProfilePicturePayload = {
     data: FormData;
 };
+
+export type CreatePoemPayload = {
+    title: string;
+    content: string;
+    isDraft: boolean;
+    public: boolean;
+    archived: boolean;
+};

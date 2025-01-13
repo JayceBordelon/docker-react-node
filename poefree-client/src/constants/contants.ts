@@ -6,11 +6,13 @@ export const PAGE_ROUTES = {
 
 export const ENDPOINTS = {
     health: '/',
+    imageBase: '/uploads',
     register: '/user/register',
     login: '/user/login',
     logout: '/user/logout',
     uploadProfilePic: '/user/image',
-    imageBase: '/uploads',
+    poems: '/poem',
+    userPoems: '/poem/user',
 };
 
 export const RANDOM_IMAGE_FILE_OPTIONS = [

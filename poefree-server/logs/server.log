@@ -167,3 +167,100 @@
 2025-01-13 13:01:31 [[37minfo[39m]: [3/4] Routes established
 2025-01-13 13:01:31 [[37minfo[39m]: [4/4] Graceful shutdown configured
 2025-01-13 13:01:31 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 14:27:07 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 14:27:07 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 14:27:07 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 14:27:07 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 14:27:08 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 15:45:48 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 15:45:48 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 15:45:48 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 15:45:48 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 15:45:49 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 15:47:10 [[37minfo[39m]: Clearing session for: Unknown user
+2025-01-13 15:47:18 [[37minfo[39m]: Login attempt: b.jayce@wustl.edu
+2025-01-13 15:47:18 [[37minfo[39m]: User logged in successfully: jaycepod
+2025-01-13 15:47:27 [[37minfo[39m]: Clearing session for: jaycepod
+2025-01-13 15:47:33 [[37minfo[39m]: Login attempt: b.jayce@wustl.edu
+2025-01-13 15:47:33 [[37minfo[39m]: User logged in successfully: jaycepod
+2025-01-13 15:48:25 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 15:48:25 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 15:48:25 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 15:48:25 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 15:48:26 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 15:48:45 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 15:48:45 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 15:48:45 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 15:48:45 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 15:48:46 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 15:48:58 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 15:48:58 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 15:48:58 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 15:48:58 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 15:48:59 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 15:51:30 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 15:51:30 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 15:51:30 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 15:51:30 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 15:51:31 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 15:52:07 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 15:52:07 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 15:52:07 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 15:52:07 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 15:52:08 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:12:27 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 16:12:27 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 16:12:27 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 16:12:27 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 16:12:27 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:16:13 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 16:16:13 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 16:16:13 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 16:16:13 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 16:16:13 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:18:21 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 16:18:21 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 16:18:21 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 16:18:21 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 16:18:22 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:18:32 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 16:18:32 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 16:18:32 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 16:18:32 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 16:18:33 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:18:37 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 16:18:37 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 16:18:37 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 16:18:37 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 16:18:38 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:19:24 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 16:19:24 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 16:19:24 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 16:19:24 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 16:19:25 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:20:57 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-13 16:20:57 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-13 16:20:57 [[37minfo[39m]: [3/4] Routes established
+2025-01-13 16:20:57 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-13 16:20:58 [[37minfo[39m]: SERVER LIVE ON PORT 3455
+2025-01-13 16:31:12 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:12 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:35 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:35 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:37 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:37 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:39 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:39 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 16:31:53 [[37minfo[39m]: Successfully fetched 0 poems.
+2025-01-13 16:46:07 [[37minfo[39m]: Successfully fetched 0 poems.
+2025-01-13 17:15:29 [[37minfo[39m]: Successfully fetched 0 poems.
+2025-01-13 17:15:51 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:15:51 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:04 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:04 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:07 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:07 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:14 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:14 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:18 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
+2025-01-13 17:16:18 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451

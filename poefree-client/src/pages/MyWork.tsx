@@ -1,12 +1,20 @@
 import { useAuthValidation } from '../hooks/hooks';
 import Layout from '../components/Layout';
-import { getUserFromSession } from '../util/sessionHandler';
+import { useEffect, useState } from 'react';
+import { Poem } from '../types/poem';
+import { fetchPoemsForCurrentUser } from '../api/poemService';
+
+const MyWorksMapped = () => {
+    const [userPoems, setUserPoems] = useState<Poem[]>([]);
+    useEffect(() => {
+        fetchPoemsForCurrentUser()
+            .then((poems) => setUserPoems(poems))
+            .catch((err) => console.error(err));
+    }, []);
+    return <>{JSON.stringify(userPoems)}</>;
+};
 
 export default function MyWork() {
     useAuthValidation();
-    const session = getUserFromSession();
-    if (session === null) {
-        return <>ERRORORROROROROR</>;
-    }
-    return <Layout children={<h1>{session.username}'s Poetry</h1>} />;
+    return <Layout children={<MyWorksMapped />} />;
 }
