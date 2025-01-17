@@ -1,7 +1,9 @@
 :root {
-    /* --nav-height-spacing: var(--nav-height); */
+    --layout-padding: 2rem 15rem 2rem 15rem;
 }
 
 .gen-layout {
     margin-top: var(--nav-height);
+    padding: var(--layout-padding);
+    background-color: var(--layout-content-bg);
 }

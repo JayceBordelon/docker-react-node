@@ -1,28 +1,16 @@
 import { useAuthValidation } from '../hooks/hooks';
 import Layout from '../components/Layout';
-import { useEffect, useState } from 'react';
-import { Poem } from '../types/poem';
+import { useState, useEffect } from 'react';
 import { fetchPoemsForCurrentUser } from '../api/poemService';
+import { Poem } from '../types/poem';
 
-const MyWorksMapped = () => {
+export default function MyWork() {
     const [userPoems, setUserPoems] = useState<Poem[]>([]);
     useEffect(() => {
         fetchPoemsForCurrentUser()
             .then((poems) => setUserPoems(poems))
             .catch((err) => console.error(err));
     }, []);
-    return (
-        <>
-            {userPoems.length > 0 ? (
-                JSON.stringify(userPoems)
-            ) : (
-                <h3>No Poems for you</h3>
-            )}
-        </>
-    );
-};
-
-export default function MyWork() {
     useAuthValidation();
-    return <Layout children={<MyWorksMapped />} />;
+    return <Layout children={<></>} />;
 }
