@@ -1,6 +1,6 @@
 import express from 'express';
 import session from 'express-session';
-import { MONGO_URI, NODE_ENV, SESSION_SECRET } from '../config/envConfig';
+import { MONGO_URI, NODE_ENV, SESSION_SECRET } from '../config/env.config';
 import 'express-session';
 import MongoStore from 'connect-mongo';
 

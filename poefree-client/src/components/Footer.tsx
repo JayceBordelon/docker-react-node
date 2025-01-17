@@ -1,4 +1,5 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { GiCoffeeCup } from 'react-icons/gi';
 
 export default function Footer() {
     return (
@@ -11,6 +12,15 @@ export default function Footer() {
                 <div className="footer-links">
                     <h4>Meet the Dev</h4>
                     <div className="social-links">
+                        <a
+                            href="https://jaycebordelon.netlify.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="social-link"
+                        >
+                            <GiCoffeeCup />
+                            Portfolio
+                        </a>
                         <a
                             href="https://www.linkedin.com/in/jaycebordelon/"
                             target="_blank"

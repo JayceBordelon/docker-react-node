@@ -1,12 +1,12 @@
 import { Request, Response } from 'express';
 import bcrypt from 'bcrypt';
-import User from '../models/User';
-import { successResponse, errorResponse } from '../utils/responseHelpers';
-import { logger } from '../utils/loggerUtil';
+import User from '../models/user.model';
+import { successResponse, errorResponse } from '../utils/response.util';
+import { logger } from '../utils/logger.util';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 import fs from 'fs';
 import path from 'path';
-import { saveSession } from '../utils/sessionUtils';
+import { saveSession } from '../utils/session.util';
 
 export const registerUser = async (
     req: Request,

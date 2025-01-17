@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import Poem from '../models/Poem';
-import { successResponse, errorResponse } from '../utils/responseHelpers';
-import { logger } from '../utils/loggerUtil';
+import Poem from '../models/poem.model';
+import { successResponse, errorResponse } from '../utils/response.util';
+import { logger } from '../utils/logger.util';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 
 export const getAllPoems = async (

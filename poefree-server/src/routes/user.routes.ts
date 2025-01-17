@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import upload from '../config/multerConfig';
+import upload from '../config/multer.config';
 import {
     registerUser,
     loginUser,

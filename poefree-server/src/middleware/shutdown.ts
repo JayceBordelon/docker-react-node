@@ -1,4 +1,4 @@
-import { disconnectFromMongo } from '../config/dbConfig';
+import { disconnectFromMongo } from '../config/db.config';
 
 export const setupGracefulShutdown = (): void => {
     const handleShutdown = async (signal: string) => {

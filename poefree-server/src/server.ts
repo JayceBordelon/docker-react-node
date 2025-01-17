@@ -1,11 +1,11 @@
 import express from 'express';
 import path from 'path';
-import { PORT, MONGO_URI } from './config/envConfig';
-import { connectToMongo } from './config/dbConfig';
+import { PORT, MONGO_URI } from './config/env.config';
+import { connectToMongo } from './config/db.config';
 import { setupMiddleware } from './middleware';
 import routes from './routes';
-import { setupGracefulShutdown } from './utils/shutdown';
-import { logger } from './utils/loggerUtil';
+import { setupGracefulShutdown } from './middleware/shutdown';
+import { logger } from './utils/logger.util';
 
 const app = express();
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import FeedPage from './pages/FeedPage';
+import Home from './pages/Home';
 import MyWork from './pages/MyWork';
 import Auth from './pages/Auth';
 import { getServerHealth } from './api/healthService';
@@ -39,7 +39,7 @@ const App: React.FC = () => {
                 </div>
             ) : (
                 <Routes>
-                    <Route path="/" element={<FeedPage />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="/auth" element={<Auth />} />
                     <Route path="/work" element={<MyWork />} />
                 </Routes>

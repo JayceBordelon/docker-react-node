@@ -26,7 +26,7 @@ const NavMenu = () => {
     return (
         <span className="nav-menu">
             <Link to="/" className="nav-link">
-                Feed
+                Home
             </Link>
             <Link to="/work" className="nav-link">
                 My Work
