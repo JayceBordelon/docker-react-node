@@ -329,3 +329,8 @@
 2025-01-17 18:13:32 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
 2025-01-17 18:23:05 [[37minfo[39m]: Fetching poems for user: 67830d16ad4add6fa77c7451
 2025-01-17 18:23:05 [[37minfo[39m]: Successfully fetched 0 poems for user: 67830d16ad4add6fa77c7451
+2025-01-17 19:52:44 [[37minfo[39m]: [1/4] Express middleware initialized
+2025-01-17 19:52:44 [[37minfo[39m]: [2/4] Static files configured at /uploads
+2025-01-17 19:52:44 [[37minfo[39m]: [3/4] Routes established
+2025-01-17 19:52:44 [[37minfo[39m]: [4/4] Graceful shutdown configured
+2025-01-17 19:52:45 [[37minfo[39m]: SERVER LIVE ON PORT 3455
